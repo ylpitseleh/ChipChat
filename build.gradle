@@ -12,6 +12,7 @@ version '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
+    // 컴파일 시점에만 사용하고 런타임에는 필요 없는 라이브러리를 정의한다.
     compileOnly {
         extendsFrom annotationProcessor
     }
@@ -24,6 +25,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // Java 라이브러리로 반복되는 getter, setter, toString 등의 메서드 작성 코드를 줄여주는 코드 다이어트 라이브러리
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     //testCompile group: 'junit', name: 'junit', version: '4.12'
