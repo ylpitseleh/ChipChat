@@ -1,5 +1,6 @@
-# intellij에서 static파일을 개발할때 서버를 재시작 하지 않고도 수정한 내용이 반영되도록 다음과 같이 추가합니다.
 spring:
+  profiles:
+    active: local
   devtools:
     livereload:
       enabled: true

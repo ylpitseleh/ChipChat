@@ -3,6 +3,7 @@ package com.websocket.chat.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.UUID;
 /*
 채팅방을 구현하기 위해 DTO를 하나 만듭니다.
@@ -15,9 +16,15 @@ pub/sub방식을 이용하면 구독자 관리가 알아서 되므로 웹소켓 
 또한 발송의 구현도 알아서 해결되므로 일일이 클라이언트에게 메시지를 발송하는 구현이 필요 없어집니다.
  따라서 채팅방 DTO는 다음과 같이 간소화됩니다.
  */
+/*
+Redis에 저장되는 객체들은 Serialize가능해야 하므로 Serializable을 참조하도록 선언하고 serialVersionUID를 세팅해 줍니다.
+ */
 @Getter
 @Setter
-public class ChatRoom {
+public class ChatRoom implements Serializable {
+
+    private static final long serialVersionUID = 6494678977089006639L;
+
     private String roomId;
     private String name;
 
